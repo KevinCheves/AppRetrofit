@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.appmovil.appretrofit.Interface.jsonplaceholder;
 import com.appmovil.appretrofit.Model.Posts;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
@@ -33,7 +34,13 @@ public class MainActivity extends AppCompatActivity {
     public void btnEnviar(View view)
     {
         txtId = (EditText) findViewById(R.id.txtId);
-        id = Integer.parseInt(txtId.getText().toString());
+        if(txtId.length()>0)
+        {
+            id = Integer.parseInt(txtId.getText().toString());
+        }else{
+            id=1;
+        }
+
         txtResult.setText("");
         getPosts();
     }
